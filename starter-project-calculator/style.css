@@ -1,0 +1,236 @@
+/* Todo: variablen anlegen
+hover + clickeffekt */
+
+:root {
+    --main-bg-color: white;
+    --main-font-color: #333;
+    --main-boxShadow: 0px 0px 5px 5px rgb(238, 238, 238);
+
+    --calculator-bg-color: whitesmoke;
+    --btn-number-bg-color: white;
+    --btn-number-font-color: #333;
+    --btn-noNumber-bg-color: rgb(245, 245, 245);
+    --btn-noNumber-font-color: #333;
+    --btn-calculate-bg-color: rgb(139, 211, 139);
+    --btn-calculate-font-color: white;
+    --main-border-color: #e2e2e2;
+
+    --btn-bg-hover-color: #f3f0ff;
+    --btn-bg-active-color: #333;
+    --btn-font-active-color: white;
+}
+
+.dark-mode {
+    --main-bg-color: #121212;
+    --main-font-color: white;
+    --main-boxShadow: 0px 0px 15px 5px rgb(42, 42, 42);
+
+
+    --calculator-bg-color: #1F1B24;
+    --btn-number-bg-color: #332940;
+    --btn-number-font-color: white;
+    --btn-noNumber-font-color: white;
+    --btn-noNumber-bg-color: #333;
+    --btn-calculate-bg-color: #339240;
+    --btn-calculate-font-color: white;
+    --main-border-color: black;
+
+
+    --btn-bg-hover-color: #444;
+    --btn-bg-active-color: white;
+    --btn-font-active-color: #333;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--main-font-color);
+}
+
+#IdOuterDiv {
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#idBorderDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+    padding: 0.7rem;
+
+    background-color: var(--calculator-bg-color);
+    border-radius: .5rem;
+    box-shadow: var(--main-boxShadow);
+}
+
+#idScreenContainer {
+    height: 7rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+}
+
+#idScreenHead {
+    height: 50%;
+    width: 100%;
+    font-size: smaller;
+    font-weight: 300;
+    padding: 0.0rem;
+}
+
+.resultScreen {
+    height: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding: 0.5rem;
+    font-size: 2rem;
+    font-weight: 500;
+    overflow: hidden
+}
+
+
+.shrinkMe {
+    font-size: 1.5rem;
+}
+
+table {
+    user-select: none;
+}
+
+
+td {
+    text-align: center;
+    font-size: smaller;
+    font-weight: 700;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--main-border-color);
+    border-radius: .2rem;
+}
+
+
+/* 
+/* Klammern
+*/
+/* Taste ")" hat 3 sub-Divs für die Anordnung */
+#tdParenthesis {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+#tdParenthesis div {
+    width: 33.3%;
+}
+
+/* Anzeige der Anzahl der noch zu schließenden Klammern im td>div-Element  ) */
+#idCommentParenthesis {
+    margin-bottom: auto;
+    font-size: smaller;
+}
+
+#hideMe {
+    display: none
+}
+
+
+/*
+/* Tasten
+*/
+.tdNumber {
+    font-weight: 700;
+    background-color: var(--btn-number-bg-color);
+    color: var(--btn-number-font-color);
+
+}
+
+.tdNoNumber {
+    font-weight: 500;
+    background-color: var(--btn-noNumber-bg-color);
+    color: var(--btn-noNumber-font-color);
+    color: var(--btn-number-font-color)
+}
+
+.tdCalc {
+    font-weight: 700;
+    background-color: var(--btn-calculate-bg-color);
+    color: var(--btn-calculate-font-color);
+}
+
+.tdNumber:hover,
+.tdNoNumber:hover,
+.tdCalc:hover {
+    background-color: var(--btn-bg-hover-color);
+    color: var(--main-font-color);
+}
+
+.tdNumber:active,
+.tdNoNumber:active,
+.tdCalc:active {
+    font-size: large;
+    background-color: var(--btn-bg-active-color);
+    color: var(--btn-font-active-color);
+}
+
+
+
+@media screen and (max-width: 500px) {
+
+    #idOuterDiv {
+        justify-content: space-between;
+    }
+
+    #idBorderDiv {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+    }
+
+    #idScreenContainer {
+        margin: 0;
+        height: 30vh;
+        border-radius: 0.5rem;
+    }
+
+    .resultScreen {
+        padding-bottom: 2rem;
+        padding-right: 1rem;
+        font-size: 3rem;
+        font-weight: 500;
+    }
+
+    .shrinkMe {
+        font-size: 2.5rem;
+    }
+
+
+    table {
+        width: 100%;
+        height: 70vh;
+        margin-top: 0rem;
+    }
+
+    td {
+        font-size: 1.2rem;
+        width: 25%;
+    }
+    #tdParenthesis{
+        width: 100%;
+        height: 100%;
+    }
+
+}

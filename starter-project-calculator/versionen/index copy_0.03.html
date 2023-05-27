@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <script>
+        //////////
+        // ToDo //
+        // negativer Wert Eingabe
+        // leerzeichen und sonderzeichen mit code in den value (&xyz)
+
+
+        let allowAppend = true // werden Eingaben angehängt oder überschrieben?
+        let allowOperator = false // Operatoren als Eingabe Sperren
+        let allowParenthesisOpen = true; allowParenthesisClose = false // Klammern öffnen nur mit vorherigen Operator
+        let countOpen = 0; countClose = 0; // Klammern werden beim berechnen gecheckt
+        let allowComa = true
+
+
+        function appendItem(itemValue) {
+
+            let item = document.getElementById("idScreen").innerHTML
+            document.getElementById("idMessage").innerHTML = "" // clear Fehlermeldung
+
+            if (allowAppend) {
+                if (item.endsWith(')')) {
+                    alert("Bitte geben Sie nach der geschlossenen Klammer einen Operator wie + _ - _ * _ / ein!")
+                } else {
+                    document.getElementById("idScreen").innerHTML += itemValue
+                }
+            }
+            else {
+                document.getElementById("idScreen").innerHTML = itemValue
+                allowAppend = true
+                console.log("open: " + countOpen + "-- close: " + countClose) // später entfernen
+
+            }
+        }
+
+        function appendOperator(operatorValue) {
+            item = document.getElementById("idScreen").innerHTML;
+            document.getElementById("idMessage").innerHTML = ""; // clear Fehlermeldung
+
+
+            // verhindert die Eingabe wenn das letzte Zeichen:
+            // - leer; Ergebnis aus vorh. Berechnung; Operator; offene Klammer
+            if (item.endsWith(" " || allowAppend == false) || item.endsWith('+') || item.endsWith('-') || item.endsWith('*') || item.endsWith('/') || item.endsWith('.') || item.endsWith('(')) {
+                //tue nichts
+            } else {
+                allowAppend = true;
+                allowComa = true;
+                document.getElementById("idScreen").innerHTML += operatorValue;
+                console.log("Komma wieder erlaubt")
+
+            }
+        }
+
+        //////////////
+        // Klammern //
+
+        function appendParenthesis(parenthesis) {
+            let item = document.getElementById("idScreen").innerHTML
+            // Prüfen ob Klammer an dieser Stelle mathematisch erlaubt ist
+            if (
+                (parenthesis == "(" && !item.endsWith(".") && (item.endsWith(" ") || item.endsWith("(")))
+                || (parenthesis == ")" && !item.endsWith(" ") && !item.endsWith("(") && !item.endsWith(".") && (countOpen > countClose))
+            ) {
+                document.getElementById("idScreen").innerHTML += parenthesis // Klammer hinzufügen
+                // counter für Klammern
+                if (parenthesis == "(") {
+                    countOpen += 1
+                } else { countClose += 1 }
+
+                // den counter in der HTML aktualisierenS
+                document.getElementById("idCounterParenthesis").innerHTML = countOpen + " -- " + countClose
+            }
+            else {
+                document.getElementById("idMessage").innerHTML = "Unzulässig!"
+            }
+        }
+
+
+
+
+
+        // Komma-Besonderheiten
+        function appendComa(itemValue) {
+            console.log("komma erlaubt: " + allowComa)
+            if (allowComa) {
+                let item = document.getElementById("idScreen").innerHTML;
+                if (item == " " || allowAppend == false) {
+                    // bei leerem Feld oder vorheriger "=" Taste wird ein "0." erzeugt            
+                    document.getElementById("idScreen").innerHTML = 0 + itemValue
+                    allowComa = false
+                } else if (item.endsWith(" ")) {
+                    document.getElementById("idScreen").innerHTML += 0 + itemValue
+                    allowComa = false
+                }
+                // else if (item.includes(".")) { // zweites Komma verhindern           }
+                else {
+                    document.getElementById("idScreen").innerHTML += itemValue
+                    allowComa = false
+                }
+            }
+        }
+
+
+        ///////////////
+        // Berechnen //
+        function calculate() {
+            document.getElementById("idMessage").innerHTML = "" // clear Fehlermeldung
+
+            if (countOpen == countClose) { // wurden genauso viele Klammern geschlossen wie geöffnet?
+                let formula = document.getElementById("idScreen").innerHTML
+                result = eval(formula)
+                document.getElementById("idScreen").innerHTML = result
+                document.getElementById("idScreenHead").innerHTML = formula
+                allowAppend = false
+                allowParenthesisClose = false
+                allowParenthesisOpen = true
+                countOpen = 0;
+                countClose = 0;
+            } else {
+                document.getElementById("idMessage").innerHTML = ("Klammern nicht zulässig geschlossen")
+            }
+        }
+
+
+        ////////////
+        // Delete //
+
+        function deleteItem() {
+            let item = document.getElementById("idScreen").innerHTML
+
+
+            if (item.endsWith(" ")) {
+                document.getElementById("idScreen").innerHTML = item.slice(0, -3)
+            } else {
+                document.getElementById("idScreen").innerHTML = item.slice(0, -1)
+            }
+            // counter der Klammern berücksichtigen
+            if (item.endsWith("(")) {
+                countOpen -= 1;
+                document.getElementById("idCounterParenthesis").innerHTML = countOpen
+            } else if (item.endsWith(")")) { countClose -= 1 }
+
+            if (item.endsWith(".")) { allowComa = true }
+
+            document.getElementById("idMessage").innerHTML = "" // clear Fehlermeldung
+            document.getElementById("idCounterParenthesis").innerHTML = countOpen + " -- " + countClose
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <div id="IdOuterDiv">
+        <div id="idBorderDiv">
+
+
+            <!-- Leerzeichen beachten // &nbsp; führt zu einer fehlerhaften Kalkulation -->
+            <div id="idScreenContainer">
+                <div id="idScreenHead"> </div>
+                <div id="idScreen"> </div>
+
+            </div>
+
+
+
+            <table>
+                <tr>
+                    <td class="tdNoNumber">MR</td>
+                    <td class="tdNoNumber" onclick="appendParenthesis('(')">(</td>
+                    <td class="tdNoNumber" onclick="appendParenthesis(')')">)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    </td>
+                    <td class="tdNoNumber" onclick="deleteItem()">DEL</td>
+                    <td class="tdNoNumber" onclick="appendOperator(' / ')">/</td>
+                    <td class="tdNoNumber" onclick="appendOperator(' * ')">*</td>
+                    <td class="tdNoNumber" onclick="appendOperator(' - ')">-</td>
+                </tr>
+                <tr>
+                    <td class="tdNumber" onclick="appendItem(7)">7</td>
+                    <td class="tdNumber" onclick="appendItem(8)">8</td>
+                    <td class="tdNumber" onclick="appendItem(9)">9</td>
+                    <td class="tdNoNumber" onclick="appendOperator(' + ')" rowspan="2">+</td>
+                </tr>
+                <tr>
+                    <td class="tdNumber" onclick="appendItem(4)">4</td>
+                    <td class="tdNumber" onclick="appendItem(5)">5</td>
+                    <td class="tdNumber" onclick="appendItem(6)">6</td>
+                </tr>
+                <tr>
+                    <td class="tdNumber" onclick="appendItem(1)">1</td>
+                    <td class="tdNumber" onclick="appendItem(2)">2</td>
+                    <td class="tdNumber" onclick="appendItem(3)">3</td>
+                    <td class="tdCalc" rowspan="2" onclick="calculate()">=</td>
+                </tr>
+                <tr>
+                    <td class="tdNumber" onclick="appendItem(0)" colspan="2">0</td>
+                    <td class="tdNoNumber" onclick="appendComa('.')">,</td>
+                </tr>
+            </table>
+            <div id="idMessage"></div>
+            <div id="idCounterParenthesis"></div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        document.getElementById("idCounterParenthesis").innerHTML = countOpen + " --  " + countClose
+
+        // Tastatureingabe
+        document.addEventListener("keydown", function (e) {
+            // nummern/zahlen
+            console.log(e)
+            if (!isNaN(e.key)) {
+                for (let i = 0; i < 10; i++) {
+                    if (e.key === i.toString()) {
+                        appendItem(i)
+                    }
+                }
+            }
+            // Operatoren
+            else if (e.key === "+" || e.key === "-" || e.key === "*" || e.key === "/") {
+                appendOperator(" " + e.key + " ");
+            }
+            // Komma
+            else if (e.key == "." || e.key == ",") {
+                appendComa(".") // Eingabe von Komma wird zum Punkt
+            }
+            // Klammern
+            else if (e.key == ("(") || e.key == (")")) {
+                appendParenthesis(e.key)
+            }
+            else if (e.key == ("Backspace")) {
+                deleteItem()
+            }
+            else if (e.key == ("Enter")) {
+                calculate()
+            }
+        }
+        )
+
+
+
+    </script>
+
+</body>
+
+</html>
