@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <script>
+        // Nützlicher copy&paste Überprüfungsblock
+        // console.log(typeof nReihe + " | " + typeof nSpalte)
+        // console.log(isNaN(nReihe) + " | " + isNaN(nSpalte))
+
+        var checker = false; // false überspringt das Löschen der if Abfrage
+        var fehlercount = 0 // für die Falscheingaben
+
+
+        // 
+        function createTable() {
+            document.getElementById("idBtnErzeugen").value = "Lädt ... "
+            setTimeout(function () {
+                createTableExe();
+                document.getElementById("idBtnErzeugen").value = "Erzeugen"
+            }, 1)
+        }
+
+
+
+        function createTableExe() {
+
+            // damit die Tabellen nicht addierte werden muss bei jeder Aktion die vorherige gelöscht werden
+            if (checker) {
+                document.getElementById("idTable").remove()
+            } else { }
+
+            ////////////////////////
+            // Usereingaben holen //
+            var nReihe = document.getElementById("idInputReihe").value;
+            var nSpalte = document.getElementById("idInputSpalte").value;
+            var nSize = document.getElementById("idInputSize").innerHTML
+
+
+
+
+            // check richtiger Datentyp?
+            if ((nReihe == "" || isNaN(nReihe) || nReihe <= 0 || nSpalte == "" || isNaN(nSpalte) || nSpalte <= 0)) {
+                if (fehlercount == 0) {
+                    alert("Ungültige Eingabe... bitte zwei positive Zahlen eintragen"); fehlercount++;
+                }
+                else if (fehlercount == 1) {
+                    alert("Hoppla... das war sicherlich keine Absicht...  wir brauchen Zahlen für die Reihen und Spalten. Positive."); fehlercount++;
+                }
+                else if (fehlercount == 2) {
+                    if (window.confirm("Hallo? Zahlen... möchtest du zum Thema eine gute Übersicht von einem Experten bekommen?")) {
+                        window.location.href = "https://www.youtube.com/watch?v=Zw41zmhnViM&ab_channel=Sesamstra%C3%9Fe"
+                    } else { fehlercount++ }
+                } else if (fehlercount == 3) {
+                    // hier wird, nach 3 falschen Eingaben eine zufällige Eingabe festgelegt
+                    let reiheMin = 5    // Mindest-Reihen der Zufallsfunktion
+                    let reiheMax = 10   // Maximal
+                    nReihe = Math.floor(Math.random() * (reiheMax - reiheMin + 1)) + reiheMin
+                    let spalteMin = 10
+                    let spalteMax = 17
+                    nSpalte = Math.floor(Math.random() * (spalteMax - spalteMin + 1)) + spalteMin
+
+                    alert("... ist schon gut. Ich mach das einfach okay?");
+                    document.getElementById("idInputReihe").value = nReihe  // ins Input-Feld schreiben
+                    document.getElementById("idInputSpalte").value = nSpalte
+                }
+            }
+
+
+            // Reihe und Spalte ist gültig festgelegt => Integer wandeln
+            nReihe = parseInt(nReihe)
+            nSpalte = parseInt(nSpalte)
+
+
+            var confirmationDatenmenge = true
+            // bei Eingabe von großen Zahlen kann es zu Abstürzen oder langen Wartezeiten kommen
+            // 1 - der User erhält eine Warnung (return true/false)
+            if ((nReihe * nSpalte) > 100000) {
+                confirmationDatenmenge = confirm('Uff, ist das vielleicht etwas zu viel für deinen armen Browser? Sollte sich das Programm aufhängen,    dann versuch dein Glück mit "neu Laden" oder beende den Browser und starte erneut. Oder klicke auf Abbrechen und gib etwas kleinere Zahlen ein')
+            } else { }
+
+            // 2 - true/fals ist Bedingung ob die Tabelle erstellt wird oder nicht
+            if (confirmationDatenmenge == true) {
+                console.log(nReihe * nSpalte)
+
+
+                ////////////////////////////////////
+                // Hier wird die Tabelle erstellt //
+
+                const container = document.getElementById("idDivTargetTable");
+                const table = document.createElement("table");
+
+
+
+                table.setAttribute("id", "idTable")     // die Tabelle bekommt ihre Id, wird zum Löschen gebraucht wenn "checker"=true
+                for (let z = 0; z < nReihe; z++) {
+                    const row = document.createElement("tr");
+                    for (let s = 0; s < nSpalte; s++) {
+                        const text = document.createTextNode(""); // Inhalt td falls gewünscht
+                        const column = document.createElement("td");
+
+                        column.classList.add("targetMe") // fügt den Zellen eine Klasse hinzu,über der alle gemeinsam ge<styled> werden können
+
+                        column.appendChild(text);
+                        row.appendChild(column)
+
+                        var farbcode = document.getElementById("idColorPicker")
+                        column.style.backgroundColor = farbcode.value;
+
+                    } table.appendChild(row)
+                    document.getElementById("idBtnAddReihe").disabled = false;
+                    document.getElementById("idBtnSubReihe").disabled = false;
+                    document.getElementById("idBtnAddSpalte").disabled = false;
+                    document.getElementById("idBtnSubSpalte").disabled = false;
+
+                    document.getElementById("idBtnAddSize").disabled = false;
+                    document.getElementById("idBtnSubSize").disabled = false;
+                }
+                document.getElementById("idDivTargetTable").appendChild(table);
+                console.log("recht")
+
+                checker = true  // damit bei erneutem Klick die "idTable" gelöscht wird
+            } else { }
+        }
+
+
+
+        //////////////////////////////
+        // Funtionen der +/- Knöpfe //
+
+        // Prüfen der Eingabe:
+        // +/- buttons springen nur bei Zahlen an, bei '-' button darf keine 0 oder negative Zahl entstehen
+        // Prüfung technisch überflüssig, wenn Buttons inaktiv (bei Aktivierung durch erstmaliges betätigen von "create")
+
+        function addReihe() {
+            nReihe = document.getElementById("idInputReihe").value // zahl holen
+            if (!isNaN(nReihe)) {
+                nReihe = parseInt(nReihe) + 1 	                    // number erzeugen und addieren
+                document.getElementById("idInputReihe").value = nReihe  // ins Input-Feld schreiben
+            }
+        }
+        function subReihe() {
+            nReihe = document.getElementById("idInputReihe").value
+            if (!isNaN(nReihe) && nReihe > 1) {
+                nReihe = parseInt(nReihe) - 1
+                document.getElementById("idInputReihe").value = nReihe
+            }
+        }
+        function addSpalte() {
+            nSpalte = document.getElementById("idInputSpalte").value // zahl holen
+            if (!isNaN(nSpalte)) {
+                nSpalte = parseInt(nSpalte) + 1 	                    // number erzeugen und addieren
+                document.getElementById("idInputSpalte").value = nSpalte  // ins Input-Feld schreiben
+            }
+        }
+        function subSpalte() {
+            nSpalte = document.getElementById("idInputSpalte").value
+            if (!isNaN(nSpalte) && nSpalte > 1) {
+                nSpalte = parseInt(nSpalte) - 1
+                document.getElementById("idInputSpalte").value = nSpalte
+            }
+        }
+
+
+        ///////////
+        // Größe //
+
+        // padding wird inline vergrößert (adjustierbar in der Forschleife)
+        // Achtung padding wird per Basiswert (2) onLoad aus dem style.css gezogen
+        function addSize() {
+            nSize = parseInt(document.getElementById("idInputSize").innerHTML)
+            if (nSize < 10) {
+                feld = document.getElementsByClassName("targetMe")
+                for (let i = 0; i < feld.length; i++) {
+                    feld[i].style.padding = (nSize + 1) + "rem";
+                }
+                nSize++
+                document.getElementById("idInputSize").innerHTML = nSize
+            }
+        }
+        function subSize() {
+            nSize = parseInt(document.getElementById("idInputSize").innerHTML)
+            if (nSize > 1) {
+                feld = document.getElementsByClassName("targetMe")
+                for (let i = 0; i < feld.length; i++) {
+                    feld[i].style.padding = (nSize - 1) + "rem";
+                }
+                nSize--
+                document.getElementById("idInputSize").innerHTML = nSize
+            }
+        }
+
+    </script>
+</head>
+<!--
+===========
+== BODY ==
+==========
+-->
+
+<body id="idBody">
+    <div class="head">
+        <div class="container-intro">
+            <h1 id="idUeberschrift">Feld erzeugen</h1>
+            <p>Dies ist eine kleine Logikübung und beinhaltet die Funktionsweise von Buttons und DOM-Manipulation,
+                sowie Grundlagen in der Anwendung von CSS.</p>
+            <p>Darüber hinaus ist diese Mini-Anwendung responsive für kleine Bildschirme</p>
+            <p> Erzeugen Sie Feld von Quadraten entsprechend ihrer Eingaben.</p>
+        </div>
+    </div>
+    <!-- 
+    Controllfield     -->
+    <div class="container-input-main" id="container-input-main">
+
+        <!-- Inputs Stats -->
+        <div class="container-input-stats">
+            <div class="container-input-element">
+                <h3>Reihen</h3>
+                <div class="container-input-sub">
+                    <input type="text" class="fieldInput" id="idInputReihe" value="">
+                    <input type="button" class="btnAdd" id="idBtnSubReihe" value="-" disabled>
+                    <input type="button" class="btnAdd" id="idBtnAddReihe" value="+" disabled>
+                </div>
+            </div>
+            <div class="container-input-element">
+                <h3>Spalten</h3>
+                <div class="container-input-sub">
+                    <input type="text" class="fieldInput" id="idInputSpalte" value="">
+                    <input type="button" class="btnAdd" id="idBtnSubSpalte" value="-" disabled>
+                    <input type="button" class="btnAdd" id="idBtnAddSpalte" value="+" disabled>
+                </div>
+            </div>
+
+            <div class="container-input-element">
+                <h3 id="h3Center">Größe</h3>
+                <div class="container-input-sub">
+                    <span class="unselect" id="idInputSize">2</span>
+                    <input type="button" class="btnAdd" id="idBtnSubSize" value="-" disabled>
+                    <input type="button" class="btnAdd" id="idBtnAddSize" value="+" disabled>
+                </div>
+            </div>
+            <div class="container-input-element">
+                <h3 id="h3Center">Farbe</h3>
+                <div class="container-input-sub">
+                    <input type="color" name="farbe" id="idColorPicker" value="#ff0090">
+                </div>
+            </div>
+        </div>
+        <!-- Create Feld -->
+        <div class="container-input-create">
+            <a href="#container-input-main">
+                <input type="button" name="" id="idBtnErzeugen" value="Erzeugen">
+            </a>
+        </div>
+    </div>
+
+
+
+    <div id="idDivLoading"></div>
+    <div id="idDivTargetTable"></div>
+
+
+
+    <script>
+        // Eventlistener
+        document.getElementById("idBtnErzeugen").addEventListener("click", createTable)
+
+        document.getElementById("idBtnAddReihe").addEventListener("click", addReihe)
+        document.getElementById("idBtnSubReihe").addEventListener("click", subReihe)
+        document.getElementById("idBtnAddSpalte").addEventListener("click", addSpalte)
+        document.getElementById("idBtnSubSpalte").addEventListener("click", subSpalte)
+
+        document.getElementById("idBtnAddSize").addEventListener("click", addSize)
+        document.getElementById("idBtnSubSize").addEventListener("click", subSize)
+
+        var farbcode = document.getElementById("idColorPicker")
+
+        var blah = document.getElementById("idUeberschrift")
+    </script>
+</body>
+
+</html>
