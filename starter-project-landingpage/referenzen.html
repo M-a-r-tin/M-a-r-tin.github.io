@@ -5,57 +5,369 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>IPB - Referenzen</title>
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/referenzen.css">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
-
-
 </head>
 
-
-<body class="landingpage">
-    <div class="topnav" id="idTopnav">
-        <a class="logo-link" id="idLogoLink" href="index.html">
-            <p id="idLogoFont">iPB</p>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a class="logo-link" href="index.html">
+            <p id="logo-font">iPB</p>
             <img id="logo-svg" src="data/img/Logo/Logo kursiv.svg" alt="Ingenieurplanung Dr Blum GmbH & Co. KG">
         </a>
-        <a href="index.html#goto-leistungen" class="navigationLink">Leistungen</a>
-        <a href="referenzen.html" class="navigationLink active">Referenzen</a>
-        <a href="karriere.html" class="navigationLink">Karriere</a>
-        <a href="kontakt.html" id="kontakt-btn" class="navigationLink">Kontakt</a>
-        <a href="javascript:void(0);" class="menu-burger" id="idBurger" onclick="expandMenu()">
+        <!-- <a href="index.html">Home</a> -->
+        <a href="index.html#goto-leistungen">Leistungen</a>
+        <a class="active" href="referenzen.html">Referenzen</a>
+        <a href="karriere.html">Karriere</a>
+        <a class="kontakt-btn" id="kontakt-btn" href="kontakt.html">Kontakt</a>
+        <a href="javascript:void(0);" class="menu-burger" onclick="openTopNav()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
 
-    <div style="height: 100vh; display: flex; align-items: center; justify-content: center;">
-        <h3>Diese Seite wird grade bearbeitet</h3>
+    <div class="content-main">
+        <div class="ueberschrift-referenz">
+            <h1>Projekte und Referenzen</h1>
+            <!-- desktop -->
+            <div class="ref-nav-desktop">
+                <a href="#idAnlagenbau">Anlagenbau</a>
+                <a href="#idStahlwasserbau">Stahlwasserbau</a>
+                <a href="#idFoerdertechnik">Fördertechnik</a>
+                <a href="#idAnschlagmittel">Anschlagmittel + Hebezeuge</a>
+                <a href="#idTreppen">Treppen</a>
+                <a href="#idFassaden">Fassaden + Dächer</a>
+                <a href="#idSpezialloesungen">Speziallösungen</a>
+            </div>
+        </div>
+
+        <!-- mobile -->
+        <div class="ref-nav-mobile">
+            <button class="ref-accordion-btn">Referenzen</button>
+            <div class="panel">
+                <!-- <div class="ref-nav-mobile"> -->
+                <a href="#idAnlagenbau">Anlagenbau</a>
+                <a href="#idStahlwasserbau">Stahlwasserbau</a>
+                <a href="#idFoerdertechnik">Fördertechnik</a>
+                <a href="#idAnschlagmittel">Anschlagmittel + Hebezeuge</a>
+                <a href="#idTreppen">Treppen</a>
+                <a href="#idFassaden">Fassaden + Dächer</a>
+                <a href="#idSpezialloesungen">Speziallösungen</a>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <button onclick="gotoTop()" id="idGotoTopBtn" title="Go to Top">&#10514</button>
+
+
+        <div class="content-referenz">
+            <!-- Anlagenbau -->
+            <h2 id="idAnlagenbau">Anlagenbau</h2>
+            <div class="container-sektion">
+                <div class="image-container">
+                    <p>Maschinenturm <span class="image-location">Karlsruhe</span>
+                    </p>
+                    <img src="data/img/referenzen/Anlagenbau/Maschinenturm-Karlsruhe.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Silo Unterkonstruktion <span class="image-location">Cabo Verde</span>
+                    </p>
+                    <img src="data/img/referenzen/Anlagenbau/Silo-Unterkonstruktion Cabo Verde.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Druckbehälter DS2000 <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Anlagenbau/Druckbehaelter DS2000.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Asche Silo <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Anlagenbau/Asche-Silo.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Fischöl-Tank <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Anlagenbau/Fischoeltank.avif" alt="">
+                </div>
+            </div>
+
+            <!-- Stahlwasserbau -->
+            <h2 id="idStahlwasserbau">Stahl-Wasserbau</h2>
+            <div class="container-sektion">
+                <div class="image-container">
+                    <p>Leuchtfeuer <span class="image-location">Warnemünde, historischer Nachbau</span>
+                    </p>
+                    <img src="data/img/referenzen/Stahlwasserbau/Leuchtturm-Warnemuende.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Leuchtfeuer <span class="image-location">Warnemünde</span>
+                    </p>
+                    <img src="data/img/referenzen/Stahlwasserbau/leuchtturm-warnemuende-2.webp" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Hängetor Hafenschleuse <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Stahlwasserbau/Haengetor Hafenschleuse.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Hub-Schiebe <span class="image-location">doppelt kehrend</span>
+                    </p>
+                    <img src="data/img/referenzen/Stahlwasserbau/Hub-Schiebe-doppelt kehrend.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>2-teiliges Dock-Tor <span class="image-location">Schweiz</span>
+                    </p>
+                    <img src="data/img/referenzen/Stahlwasserbau/Zweiteiliges Dock-Tor-Schweiz.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Revisionesverschluss <span class="image-location">schwimmfähig</span>
+                    </p>
+                    <img src="data/img/referenzen/Stahlwasserbau/Revisionsverschluss-schwimmfähig.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Hubtor Niedrigwasserschleuse <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Stahlwasserbau/hubtor-niedrigwasserschleuse.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Dreifach-Siel <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Stahlwasserbau/3-fach Siel.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Offshore-Plattform <span class="image-location">FINO 3</span>
+                    </p>
+                    <img src="data/img/referenzen/Stahlwasserbau/Offshore Plattform FINO 3.avif" alt="">
+                </div>
+            </div>
+
+            <!-- Fördertechnik -->
+            <h2 id="idFoerdertechnik">Fördertechnik</h2>
+            <div class="container-sektion">
+                <div class="image-container">
+                    <p>Verfahrbares Verladeband <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Fördertechnik/Verfahrbares Verladeband.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Bandbrücke <span class="image-location">Vierow</span>
+                    </p>
+                    <img src="data/img/referenzen/Fördertechnik/Bandbruecke-Vierow.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Bandbrücke <span class="image-location">Rostock</span>
+                    </p>
+                    <img src="data/img/referenzen/Fördertechnik/Bandbruecke-Rostock.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Elevator für Schiff <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Fördertechnik/Elevator fuer Schiff.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Bandbrücke Kohlestaubkraftwerk <span class="image-location">Lünen</span>
+                    </p>
+                    <img src="data/img/referenzen/Fördertechnik/Bandbruecke-Kohlestaubkraftwerk-Luenen.avif" alt="">
+                </div>
+            </div>
+
+            <!-- Anschlagmittel -->
+            <h2 id="idAnschlagmittel">Anschlagmittel und Hebezeuge</h2>
+            <div class="container-sektion">
+                <div class="image-container">
+                    <p>Twin Laschkorb <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Anschlagmittel/Twin-Laschkorb.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>40t Multifunktionstraverse <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Anschlagmittel/40t-Multifunktions-Traverse.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>60t Spezial-Traverse <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Anschlagmittel/60t-Spezial-Traverse.webp" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Koffercontainer, Kreuzfahrtschiff <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Anschlagmittel/Koffercontainer-Kreuzfahrtschiffe.avif" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Twistlock-Flat <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Anschlagmittel/Twistlock-Flat.webp" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Laschkorb-Kombination <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Anschlagmittel/Laschkorb-Kombination.avif" alt="">
+                </div>
+            </div>
+
+            <!-- Treppen -->
+            <h2 id="idTreppen">Treppen</h2>
+            <div class="container-sektion">
+                <div class="image-container">
+                    <p>Aufzugsturm <span class="image-location">New York</span>
+                    </p>
+                    <img src="data/img/referenzen/Treppen/Aufzugsturm freistehend.jpg" alt="Aufzugsturm, New York">
+                </div>
+                <div class="image-container">
+                    <p>Balkonanlage</p>
+                    <img style="object-fit: contain;" src="data/img/referenzen/Treppen/Balkonanlage am Altbau.jpg"
+                        alt="Balkonanlage">
+                </div>
+                <div class="image-container">
+                    <p>Einhausung <span class="image-location">Reinfeld</span></p>
+                    <img src="data/img/referenzen/Treppen/Einhausung Treppe, Reinfeld.jpg" alt="Einhausung, Reinfeld">
+                </div>
+                <div class="image-container">
+                    <p>Fluchttreppe <span class="image-location">Rostock</span></p>
+                    <img src="data/img/referenzen/Treppen/Fluchttreppe Rostock.jpg" alt="">
+                </div>
+                <div class="image-container">
+                    <p>Spindeltreppe</p>
+                    <img src="data/img/referenzen/Treppen/Spindeltreppe.jpg" alt="Spindeltreppe">
+                </div>
+                <div class="image-container">
+                    <p>Treppenturm <span class="image-location">Lübeck</span></p>
+                    <img src="data/img/referenzen/Treppen/Treppenturm Lübeck.jpg" alt="Treppenturm, Lübeck">
+                </div>
+            </div>
+
+            <!-- Fassaden Vordächer -->
+            <h2 id="idFassaden">Fassaden und Vordächer</h2>
+            <div class="container-sektion">
+                <div class="image-container">
+                    <p>Dachkonstruktion <span class="image-location">Berlin</span>
+                    </p>
+                    <img style="object-fit: contain;" src="data/img/referenzen/Daecher/Ebert.jpg"
+                        alt="Dachkonstruktion, Berlin">
+                </div>
+                <div class="image-container">
+                    <p>Eckportal Höffner<span></span></p>
+                    <img src="data/img/referenzen/Daecher/Eckportal Hoeffner.jpg" alt="Balkonanlage">
+                </div>
+                <div class="image-container">
+                    <p>Fassade <span class="image-location">Bahnhof Willemsburg</span></p>
+                    <img src="data/img/referenzen/Daecher/Fassade-BahnhofWillelmsburg.jpg"
+                        alt="Fassade, Bahnhof Willemsburg">
+                </div>
+                <div class="image-container">
+                    <p>Glasdach <span class="image-location">Wismar</span></p>
+                    <img style="object-fit: contain;" src="data/img/referenzen/Daecher/Glasdach Wismar.jpg"
+                        alt="Glasdach, Wismar">
+                </div>
+                <div class="image-container">
+                    <p>Segmentiertes Vordach</p>
+                    <img src="data/img/referenzen/Daecher/segmentiertesVordach.jpg" alt="Segmentiertes Vordach">
+                </div>
+                <div class="image-container">
+                    <p>Vordach <span class="image-location">Barsbüttel</span></p>
+                    <img src="data/img/referenzen/Daecher/Vordach-Barsbuettel.jpg" alt="Vordach, Barsbüttel">
+                </div>
+                <div class="image-container">
+                    <p>Portal <span class="image-location">Spassbad</span></p>
+                    <img src="data/img/referenzen/Daecher/Vorportal Spassbad.webp" alt="Portal, Spassbad">
+                </div>
+            </div>
+
+            <!-- Speziallösungen -->
+            <h2 id="idSpezialloesungen">Speziallösungen</h2>
+            <div class="container-sektion">
+                <div class="image-container">
+                    <p>Abfangung Giebel <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Spazialloesungen/abfangung Giebel.avif" alt="Abfangung Giebel">
+                </div>
+                <div class="image-container">
+                    <p>Baubehelf U-Bahntunnel <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Spazialloesungen/Baubehelf Montage im UBahntunnel.avif"
+                        alt="Baubehelf U-Bahntunnel">
+                </div>
+                <div class="image-container">
+                    <p>Cockpitzugang <span class="image-location">Lufthansatechnik</span>
+                    </p>
+                    <img src="data/img/referenzen/Spazialloesungen/CokpitZugang Lufthansatechnik.avif"
+                        alt="Cockpitzugang Lufthansatechnik">
+                </div>
+                <div class="image-container">
+                    <p>Feuerwehr-Übungsturm <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Spazialloesungen/Feuerwehr Uebungsturm.avif"
+                        alt="Feuerwehr Übungsturm">
+                </div>
+                <div class="image-container">
+                    <p>Offshore Taucheraufzug <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Spazialloesungen/Offshore Taucheraufzug.avif"
+                        alt="Offshore Taucheraufzug">
+                </div>
+                <div class="image-container">
+                    <p style="position: relative;">Transportvorrichtung U-Bahn </p>
+                    <p style="position: relative; padding: 0, 0, 0, 1;"><span class="image-location">Hamburg</span>
+                    </p>
+                    <img src="data/img/referenzen/Spazialloesungen/Transportvorrichtung UBahn Hamburg.avif"
+                        alt="Transportvorrichtung U-Bahn">
+                </div>
+                <div class="image-container">
+                    <p>Transportwagen Werft <span class="image-location"></span>
+                    </p>
+                    <img src="data/img/referenzen/Spazialloesungen/Transportwagen werft.avif"
+                        alt="Transportwagen Werft">
+                </div>
+            </div>
+        </div>
+
+        <!-- Popupimage -->
+        <div class="popup-image">
+            <span>&times;</span>
+            <img src="#" alt="">
+        </div>
+
+        <!-- =================== -->
+        <!--  FOOTER -->
+        <!-- =================== -->
+        <footer class="site-footer">
+            <div class="indside">
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="#idTop">Nach oben</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+        <!-- =================== -->
+
     </div>
 
-    <!-- ======== -->
-    <!--  FOOTER  -->
-    <!-- ======== -->
-    <footer class="site-footer">
-        <div class="indside">
-            <nav class="footer-nav">
-                <ul>
-                    <li><a href="#idTop">Nach oben</a></li>
-                    <li><a href="impressum.html">Impressum</a></li>
-                    <li><a href="datenschutz.html">Datenschutz</a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
-    <!-- =================== -->
-
-
     <script>
-        function expandMenu() {
-            var x = document.getElementById("idTopnav");
+
+        //   Bilder vergrößern
+        document.querySelectorAll('.container-sektion img').forEach(image => {
+            image.onclick = () => {
+                document.querySelector('.popup-image').style.display = 'block';
+                document.querySelector('.popup-image img').src = image.getAttribute('src')
+            }
+        });
+
+        document.querySelector('.popup-image span').onclick = () => {
+            document.querySelector('.popup-image').style.display = 'none';
+        }
+
+
+        //Top - Navigation
+        function openTopNav() {
+            var x = document.getElementById("myTopnav");
             if (x.className === "topnav") {
                 x.className += " responsive";
             } else {
@@ -63,6 +375,39 @@
             }
         }
 
+        //Accordion Script
+        var acc = document.getElementsByClassName("ref-accordion-btn");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("accordion-open");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+
+
+        // gotoTop Btn
+        let gotoTopBtn = document.getElementById("idGotoTopBtn");
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            console.log("Hi")
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                gotoTopBtn.style.display = "block";
+            } else {
+                gotoTopBtn.style.display = "none"
+            }
+        }
+
+        function gotoTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
     </script>
 
 </body>
