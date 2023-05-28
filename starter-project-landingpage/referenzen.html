@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+
+</head>
+
+
+<body class="landingpage">
+    <div class="topnav" id="idTopnav">
+        <a class="logo-link" id="idLogoLink" href="index.html">
+            <p id="idLogoFont">iPB</p>
+            <img id="logo-svg" src="data/img/Logo/Logo kursiv.svg" alt="Ingenieurplanung Dr Blum GmbH & Co. KG">
+        </a>
+        <a href="index.html#goto-leistungen" class="navigationLink">Leistungen</a>
+        <a href="referenzen.html" class="navigationLink active">Referenzen</a>
+        <a href="karriere.html" class="navigationLink">Karriere</a>
+        <a href="kontakt.html" id="kontakt-btn" class="navigationLink">Kontakt</a>
+        <a href="javascript:void(0);" class="menu-burger" id="idBurger" onclick="expandMenu()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+        <h3>Diese Seite wird grade bearbeitet</h3>
+    </div>
+
+    <!-- ======== -->
+    <!--  FOOTER  -->
+    <!-- ======== -->
+    <footer class="site-footer">
+        <div class="indside">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#idTop">Nach oben</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <!-- =================== -->
+
+
+    <script>
+        function expandMenu() {
+            var x = document.getElementById("idTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

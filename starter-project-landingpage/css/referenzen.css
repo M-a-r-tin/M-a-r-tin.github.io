@@ -1,0 +1,297 @@
+.ueberschrift-referenz h1 {
+    margin: 0;
+}
+
+/* =============== */
+/* = Nav2 Desktop = */
+/* =============== */
+
+.ref-nav-mobile {
+    display: none;
+}
+
+.ref-nav-desktop {
+
+    display: flex;
+    flex-wrap: wrap;
+
+
+    overflow: hidden;
+    width: 100%;
+    background-color: #085588;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.ref-nav-desktop a {
+    color: whitesmoke;
+    text-align: center;
+    padding: 1rem 1rem;
+    text-decoration: none;
+    font-size: 1.0rem;
+    font-weight: 600;
+}
+
+.ref-nav-desktop a:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.5rem;
+    transition: 0.2s;
+}
+
+/* = Nav2 SWITCH ========== */
+/* Screen KLEINER als 500px */
+@media screen and (max-width: 500px) {
+    .ref-nav-desktop {
+        display: none;
+    }
+
+    .ref-nav-mobile {
+        display: block;
+    }
+}
+
+
+
+
+/* 
+Ref Navigation mobile */
+/* Accordion ======== */
+
+.ref-accordion-btn {
+    background-color: #085588;
+    color: white;
+    cursor: pointer;
+    padding: 0.7rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+
+    outline: none;
+    font-size: 1.2rem;
+    transition: 0.4s;
+}
+
+.ref-accordion-btn:after {
+    content: '\002B';
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    float: right;
+}
+
+.accordion-open:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 1rem;
+    margin: 0rem 0rem 0.5rem 0rem;
+    background-color: #0966a3;
+    max-height: 0rem;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.114);
+}
+
+.panel a {
+    display: block;
+    position: relative;
+    padding: 2rem;
+    color: white;
+    font-size: larger;
+    text-decoration: none;
+    border-bottom: #777;
+}
+
+
+
+/* Hier Ende Nav2 Desktop  */
+/* =============== */
+/* =============== */
+
+
+
+#idGotoTopBtn {
+    /* display: none; */
+    position: fixed;
+    bottom: 2rem;
+    right: 2.2rem;
+
+    width: 8rem;
+    height: auto;
+
+    border: none;
+    outline: none;
+    background-color: #0965a3de;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    z-index: 18;
+}
+
+@media screen and (max-width: 500px) {
+    #idGotoTopBtn {
+        bottom: 0.5rem;
+    }
+
+
+}
+
+
+
+/* =============== */
+/* =============== */
+/* =============== */
+
+
+
+
+
+.ueberschrift-referenz h1 {
+    padding: 5rem;
+    font-size: 2.5rem;
+    color: #085588;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.ueberschrift-referenz {
+    background-color: rgba(255, 255, 255, 0.733);
+    background-image: url(/data/img/sample/head-ref.jpg);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center;
+
+    background-blend-mode: color;
+}
+
+h2 {
+    padding: 3rem 1rem 0rem 3rem;
+
+    font-size: 2.0rem;
+    color: #333;
+    text-align: left;
+}
+
+/* gesamter content */
+.content-referenz {
+    position: relative;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+
+.container-sektion {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: start;
+    padding: 3rem;
+    margin-left: 2rem;
+    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.114);
+}
+
+
+
+
+/*
+/* Thumpnail
+ */
+.image-container {
+    /* height: 250px; */
+    width: 15rem;
+    height: 10rem;
+
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.image-container img {
+    border: 0.5rem solid rgb(255, 255, 255);
+    top: 0;
+    height: 100%;
+    width: 100%;
+    /* mit object-fit: contain könnte das ganze Bild dargestellt werden */
+    object-fit: cover;
+}
+
+/* Thumpnail-Titel */
+.image-container p {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem;
+
+    z-index: 11;
+}
+
+.image-location {
+    font-size: smaller;
+}
+
+.image-container:hover {
+    border-bottom: 5px solid #085588;
+}
+
+.image-container:hover img {
+    transform: scale(1.1);
+    transition: 0.2s ease-out;
+}
+
+
+
+
+/*
+/* Popup
+ */
+.popup-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .9);
+    height: 100%;
+    width: 100%;
+    display: none;
+    z-index: 20;
+}
+
+/* close button */
+.popup-image span {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 60px;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+}
+
+.popup-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 750px;
+    max-height: 90%;
+    max-width: 90%;
+    /* object-fit: contain; */
+}
+
+@media (max-width: 768px) {
+    .popup-image img {
+        width: 95%;
+    }
+
+}

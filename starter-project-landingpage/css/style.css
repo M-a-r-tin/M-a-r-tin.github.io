@@ -1,0 +1,815 @@
+/*  ==========================================
+    Stylesheet - Main
+    ==> IPB Blum
+    =======================================
+    0. Variabeln für alle Farben  
+    ======================================= */
+
+:root {
+    --rootSchriftDunkel: #333;
+    --rootSchriftSignal: #085588;
+
+    /* ===================== */
+
+    --htmlBackground: transparent;
+    --bodyBackground: white;
+    --bodySchrift: var(--rootSchriftDunkel);
+
+    /* Header */
+    --headerBackground: #ffffff;
+    --headerSchrift: #333;
+
+    /* Navigation Top */
+    --navigationBackground: #032338;
+
+    --navigationSchrift: white;
+    --navigationCurrent: #0c78c0;
+    --navigationHoverBackground: #0c78c0;
+
+    --navigationBackgroundLinks: var(--navigationBackground);
+    --navigationSchriftLinks: var(--navigationSchrift);
+    --navigationCurrentSchrift: var(--navigationSchrift);
+    --navigationHoverSchrift: var(--navigationSchrift);
+
+    --navigationBorder: whitesmoke;
+    --navigationShadow: 0 2px 3px grey;
+
+    /* Menu.-Button*/
+    --navigationButtonMenuSchrift: var(--navigationSchrift);
+    --navigationMenubuttonBackground: inherit;
+
+
+    /* footer */
+    --footerBackground: #032338;
+    --footerSchrift: white;
+    --footerBorder: rgb(255, 234, 234);
+
+
+    /* Infoboxen */
+    --infoboxenBackground: rgb(249, 249, 249);
+    --infoboxSchrift: #333;
+    /* trenner*/
+    --infoboxBackground: rgb(255, 255, 255);
+
+    --infoboxButtonBackground: #316283 linear-gradient(#386e92, #316283);
+    --infoboxButtonBackgroundHover: #0c78c0 linear-gradient(#0e80cc, #0c78c0);
+    --infoboxButtonSchrift: white;
+
+    /* Zitatboxen / Kundenstimmen */
+    --kundenstimmeBackground: white;
+    --kundenstimmeBackgroundImage: linear-gradient(to right, whitesmoke, whitesmoke);
+    --kundenstimmeBorderElement: #0b74b8;
+    --kundenstimmenSchatten: 1px 3px 13px rgb(222, 222, 222);
+
+    /* Seite- aktuelles */
+    --aktuellesInfoSchrift: gray;
+    --aktuellesTrenner: white;
+
+    /* kontaktformular */
+    --kontaktformularBackground: whitesmoke;
+    --kontaktformularButton: gray;
+    --kontaktformularButtonSchrift: #ffffff;
+
+    /* Links */
+    --linkDefault: #0b74b8;
+    --linkVisited: #36abde;
+    --linkHover: #f5662E;
+    --linkActive: #ec3;
+}
+
+
+
+/*  ==========================================
+
+    Grundlegende Gestaltung, Global
+
+    ======================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    background-color: white;
+    scroll-behavior: smooth;
+}
+
+/* Syystemschriftart mit Nutzergerät abstimmen*/
+body {
+    height: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--rootSchriftSignal);
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 2.0rem;
+    color: var(--rootSchriftSignal);
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--rootSchriftSignal);
+    margin-bottom: 1rem;
+}
+
+a {
+    /* Strich bekommt etwas Abstand */
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.1875em;
+}
+
+/* Versteckte Elemente ausblenden */
+.versteckt {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0) !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    margin: -1px !important;
+}
+
+
+
+
+/* ==========================================
+    Seitenlayout allgemein
+/* ======================================= */
+body {
+    background-color: white;
+    min-width: 320px;
+    display: flex;
+    flex-flow: column;
+    max-width: none;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.inside {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 8rem 1rem 8rem 1rem;
+}
+
+.site-content,
+.site-footer {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.site-content {
+    margin-top: 0rem;
+    line-height: 1.5;
+    flex: 1;
+}
+
+
+
+/** 
+  * Navigation 
+  */
+
+.topnav {
+    overflow: hidden;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.877);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.114);
+    z-index: 10;
+}
+
+#idLogoFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #085588;
+    margin: 0;
+    border-radius: 0.4rem;
+    padding: 0.2rem;
+    transition: 0.4s;
+}
+
+.logo-link {
+    text-decoration: none !important;
+    margin-right: auto;
+}
+
+/* falls svg Logo gewünscht */
+#logo-svg {
+    display: none;
+}
+
+.demoWrapper :first-child {
+    margin-left: 1rem;
+    margin-right: auto;
+}
+
+#kontakt-btn {
+    margin-left: auto;
+    margin-right: 1rem;
+    border-radius: .2rem;
+}
+
+@media screen and (max-width:600px) {
+    #kontakt-btn {
+        margin: 0rem;
+    }
+}
+
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #333;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+.topnav a:hover {
+    color: black;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.5rem;
+    transition: 0.2s;
+}
+
+.topnav a.active {
+    color: #085588;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.5rem;
+
+}
+
+.topnav .menu-burger {
+    display: none;
+    color: black;
+}
+
+/* Screen KLEINER als 600px */
+@media screen and (max-width: 600px) {
+    .topnav {
+        display: block;
+    }
+
+    #idLogoFont {
+        border: none;
+        font-size: 3rem;
+        transition: 0.3s;
+    }
+
+    .topnav a:not(:first-child) {
+        display: none;
+        position: relative;
+    }
+
+
+    .topnav .navigationLink {
+        font-size: larger;
+        text-align: center;
+        padding: 3rem;
+    }
+
+    .topnav a.menu-burger {
+        display: block;
+        float: right;
+        top: 0.5rem;
+        right: 2.5rem;
+        font-size: 1.6rem;
+        transition: 0.3s;
+    }
+
+    .topnav a:first-child {
+        margin: 0;
+        box-shadow: 0 2px 0px rgba(0, 0, 0, 0.114);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .topnav.responsive {
+        position: fixed;
+        background-color: rgba(255, 255, 255, .95);
+    }
+
+    .topnav.responsive .menu-burger {
+        position: absolute;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+    }
+
+}
+
+/* Ende Media */
+/* Ende Nav */
+
+/** 
+* HERO 
+*/
+
+.hero-container {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../data/img/hero.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.logo-hero {
+    width: 18.5rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: .4rem solid whitesmoke;
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+
+.hero-untertitel {
+    color: whitesmoke;
+    font-size: 1.27rem;
+    font-weight: 500;
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .hero-textblock {
+        justify-content: left;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-hero {
+        width: 10rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        border: .2rem solid whitesmoke;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        margin-bottom: 1rem;
+
+    }
+
+    .hero-untertitel {
+        color: whitesmoke;
+    }
+}
+
+/** 
+* INTRO 
+*/
+.content-intro {
+    display: flex;
+    min-height: 60vh;
+    align-items: center;
+}
+
+.content-intro h1 {
+    color: #085588;
+    text-transform: uppercase;
+}
+
+
+/** 
+  * Button
+  */
+
+.content-button {
+    color: #085588;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 1rem 1rem 1rem;
+    border: 1px solid #085588;
+}
+
+.content-button:hover {
+    color: white;
+    background-color: #085588;
+    padding: 1rem 2rem 1rem 2rem;
+    transition: 0.2s;
+}
+
+/** 
+  * Leistungen
+  */
+
+.content-leistungen {
+    background-color: rgb(240, 240, 240);
+    background-image: url("../data/img/content-leistung.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right center;
+    background-blend-mode: luminosity;
+    color: #333;
+}
+
+.leistung-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.content-leistungen h2 {
+    color: #085588;
+    text-transform: uppercase;
+}
+
+.leistungen-liste {
+    text-align: start;
+    float: left;
+    width: 50%;
+    margin: 3rem 0rem;
+
+}
+
+.leistungen-liste ul {
+    list-style: none;
+    padding: 0;
+    padding-right: 1rem;
+    margin-top: 1rem;
+}
+
+.leistungen-liste li {
+    line-height: 2rem;
+}
+
+
+/* Responsive -richtet die cols ÜBEREINANDER aus */
+@media screen and (max-width: 600px) {
+    .leistungen-liste {
+        width: 100%;
+    }
+
+    .leistung-container {
+        flex-direction: column;
+    }
+
+    .content-leistungen {
+        background-position: center center;
+    }
+}
+
+
+/** 
+  * Logos der Partner
+  */
+.partner-logo .inside {
+    padding-bottom: 1rem;
+}
+
+
+.partner-grid {
+    margin: 0rem auto 8rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    grid-gap: 3rem;
+    width: 70%;
+}
+
+.partner-logo {
+    background-color: #ffffff;
+    align-items: center;
+}
+
+.partner-grid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    height: 7rem;
+    padding: 1rem;
+}
+
+.partner-grid div:hover {
+    background-color: whitesmoke;
+}
+
+.partner-grid img {
+    height: 100%;
+    max-width: 100%;
+}
+
+
+@media screen and (max-width: 1260px) {
+    .partner-grid div {
+        height: 5rem;
+        padding: 1rem;
+    }
+
+    .partner-grid {
+        grid-gap: 1rem;
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .partner-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .minor {
+        display: none;
+    }
+}
+
+
+/** 
+  REFERENZEN auf Main Page
+  */
+
+
+.content-referenzen {
+    background-color: rgb(0, 0, 0);
+    background-image: url("../data/img/referenzen-back.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: none;
+    background-blend-mode: lighten;
+    height: 78vh;
+
+    display: flex;
+    flex-direction: row;
+}
+
+
+.content-referenzen .inside {
+    margin: auto 0rem auto auto;
+}
+
+.referenzen-textblock {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3rem;
+    margin: auto 3rem;
+}
+
+.referenzen-textblock a {
+    color: #5db1e9;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 1rem 1rem 0;
+}
+
+.referenzen-textblock a:hover {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: #085588;
+    padding: 1rem 1rem 1rem 0.5rem;
+    transition: 0.2s;
+}
+
+/* button */
+/* Links zu Referenzen und Jobs in Main Content */
+.content-button-div {
+    margin-top: 3rem
+}
+
+.content-cta {
+    padding: 1rem 2rem;
+    margin-top: 4rem;
+
+    border-radius: 0.2rem;
+    border: 3px solid white;
+    background: black;
+    color: white;
+    font-size: larger;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#idGotoTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 5rem;
+    right: 2.5rem;
+
+    width: 4rem;
+    height: 6rem;
+
+    border: none;
+    outline: none;
+    background-color: #085588;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: .2rem;
+    font-size: 2rem;
+    z-index: 80;
+    box-shadow: 0 0px 5px rgb(150, 150, 150);
+}
+
+@media screen and (max-width: 600px) {
+
+    #idGotoTopBtn {
+        bottom: 1rem;
+        right: 1rem;
+
+        width: 4rem;
+        height: 6rem;
+
+    }
+}
+
+
+
+/**
+  * Jobs (auf der Main Page)
+  */
+
+.content-karriere ul {
+    list-style: none;
+    line-height: 3rem;
+}
+
+#karriere-p {
+    margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+
+    .content-button-div {
+        text-align: center;
+    }
+}
+
+
+
+/** 
+    * 2.3. FOOTER (inklusive Inhalte)  
+    */
+/* Grundlegend Footer*/
+.site-footer {
+    font-size: smaller;
+    background-color: #085588;
+    color: white;
+    text-align: right;
+    padding: 1rem 1rem;
+}
+
+
+/* Navigation Footer */
+.footer-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li {
+    margin-right: 0.5rem;
+}
+
+.footer-nav li:first-child {
+    padding-left: 1rem;
+    margin-right: auto;
+}
+
+.footer-nav li:last-child {
+    margin-right: 1rem;
+    padding-left: 0.5rem;
+    border-left: 1px solid white;
+
+}
+
+.site-footer a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+/*  ==========================================
+
+Stellenausschreibung (auf karriere.hmtl)
+
+======================================= */
+
+.content-jobs {
+    padding: 1.5rem
+}
+
+.listBullet {
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+
+.listBullet h3 {
+    margin: 2rem 0rem 1rem 0rem;
+}
+
+.listBullet h3:first-child {
+    margin: 4rem 0rem 1rem 0rem;
+}
+
+
+#idInsideJobs {
+    padding: 0rem 0rem 4rem 0rem;
+
+    /* dies macht, dass man trotz des Bildes den Text lesen kann, der Schatten ist für einen sanften verlauf */
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 4rem;
+    box-shadow: -20px 0px 30px rgb(255, 255, 255);
+
+}
+
+.content-jobs {
+    background-image: url("../data/img/karriere-back.jpg");
+    background-position: top;
+    background-size: contain;
+    background-repeat: none;
+
+
+    background-color: rgb(255, 255, 255);
+}
+
+.listFacts {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 3rem auto 3rem auto;
+}
+
+.listFacts li {
+    display: flex;
+    padding: 1rem;
+}
+
+.ueberschrift-jobs {
+    margin: 4rem 0rem;
+}
+
+.iconJobs {
+    height: 30px;
+    padding-right: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 1rem;
+    }
+
+    .ueberschrift-jobs {
+        margin: 2rem 0rem;
+    }
+
+    .iconJobs {
+        margin-right: 0.7rem;
+    }
+
+    .listBullet {
+        padding: 0;
+    }
+
+    .ueberschrift-jobs h2 {
+        font-size: 1.5rem;
+    }
+
+    .jobs-aufmacher h1 {
+        font-size: 2rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .listFacts {
+        display: block;
+        align-items: center;
+        justify-content: space-between;
+        margin: 2.5rem auto 2.5rem auto;
+    }
+}
