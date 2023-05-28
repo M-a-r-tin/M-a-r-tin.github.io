@@ -1,6 +1,8 @@
 # m-a-r-tin.github.io
- Demo reel
 
-## ToDo
-Github Profil verlinken
-target blank
+- Demo reel für den Einstieg in die Anwendungsentwicklung
+
+## Nächste Schritte:
+
+- SQL (Grundlagen)
+- THREE.JS (Grundlagen)
