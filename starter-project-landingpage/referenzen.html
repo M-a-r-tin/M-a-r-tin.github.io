@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="idTop">
 
 <head>
     <meta charset="UTF-8">
@@ -8,25 +8,30 @@
     <title>IPB - Referenzen</title>
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css/referenzen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <!-- Alert -->
+    <script>
+        // alert("Diese Seite befindet sich grade im Aufbau. Sie sehen den gegenwärtigen, optimierungsbedürftigen Stand")
+    </script>
 </head>
 
 <body>
-    <div class="topnav" id="myTopnav">
-        <a class="logo-link" href="index.html">
-            <p id="logo-font">iPB</p>
-            <img id="logo-svg" src="data/img/Logo/Logo kursiv.svg" alt="Ingenieurplanung Dr Blum GmbH & Co. KG">
+    <div class="topnav" id="idTopnav">
+        <a class="logo-link" id="idLogoLink" href="index.html">
+            <p id="idLogoFont">iPB</p>
+            <!-- <img id="logo-svg" src="data/img/Logo/Logo kursiv.svg" alt="Ingenieurplanung Dr Blum GmbH & Co. KG"> -->
         </a>
-        <!-- <a href="index.html">Home</a> -->
-        <a href="index.html#goto-leistungen">Leistungen</a>
-        <a class="active" href="referenzen.html">Referenzen</a>
-        <a href="karriere.html">Karriere</a>
-        <a class="kontakt-btn" id="kontakt-btn" href="kontakt.html">Kontakt</a>
-        <a href="javascript:void(0);" class="menu-burger" onclick="openTopNav()">
-            <i class="fa fa-bars"></i>
+        <a href="index.html#goto-leistungen" class="navigationLink">Leistungen</a>
+        <a class="active" href="referenzen.html" class="navigationLink">Referenzen</a>
+        <a href="karriere.html" class="navigationLink">Karriere</a>
+        <a class="kontakt-btn" id="kontakt-btn" href="kontakt.html" class="navigationLink">Kontakt</a>
+        <a href="javascript:void(0);" class="menu-burger" id="idBurger" onclick="expandMenu()">
+            <i class="fa fa-bars"> </i>
         </a>
     </div>
 
@@ -61,8 +66,7 @@
             </div>
         </div>
 
-        <button onclick="gotoTop()" id="idGotoTopBtn" title="Go to Top">&#10514</button>
-
+        <button id="idGotoTopBtn" title="Go to Top" onclick="gotoTop()">&#10514</button>
 
         <div class="content-referenz">
             <!-- Anlagenbau -->
@@ -350,65 +354,8 @@
 
     </div>
 
-    <script>
+    <script type="text/javascript" src="script.js"></script>
 
-        //   Bilder vergrößern
-        document.querySelectorAll('.container-sektion img').forEach(image => {
-            image.onclick = () => {
-                document.querySelector('.popup-image').style.display = 'block';
-                document.querySelector('.popup-image img').src = image.getAttribute('src')
-            }
-        });
-
-        document.querySelector('.popup-image span').onclick = () => {
-            document.querySelector('.popup-image').style.display = 'none';
-        }
-
-
-        //Top - Navigation
-        function openTopNav() {
-            var x = document.getElementById("myTopnav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
-            }
-        }
-
-        //Accordion Script
-        var acc = document.getElementsByClassName("ref-accordion-btn");
-        var i;
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("accordion-open");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
-        }
-
-
-        // gotoTop Btn
-        let gotoTopBtn = document.getElementById("idGotoTopBtn");
-        window.onscroll = function () { scrollFunction() };
-
-        function scrollFunction() {
-            console.log("Hi")
-            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-                gotoTopBtn.style.display = "block";
-            } else {
-                gotoTopBtn.style.display = "none"
-            }
-        }
-
-        function gotoTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
 
 </body>
 

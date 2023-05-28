@@ -5,19 +5,21 @@
 
 ## Weitere Leistungen
 
-    Stock Material: hero, referenzen(per css-background), karriere
-    Eigene Bilder:  #Leistungen (css background), referenzen (css background)
-    Alle Texte verfasst (außer AGB+Datenschutz)
-        (> AGB und Datenschutz von der alten Homepage übernommen)
-    Das Platzhalter-Logo als Font erstellt
-    Stellenausschreibung erstellt
-        > vergleichbare Unternehmen als Orientirung
+- Stock Material: hero, referenzen(per css-background), karriere
+- Eigene Bilder: #Leistungen (css background), referenzen (css background)
+- Alle Texte verfasst (außer AGB+Datenschutz)
+  > AGB und Datenschutz von der alten Homepage übernommen
+- Das Platzhalter-Logo als Font erstellt
+- Stellenausschreibung erstellt
+  > vergleichbare Unternehmen als Orientirung
 
 ## aktuell in Bearbeitung:
 
     Referenzen Unterseite / slideshow
 
 ## ToDo:
+
+    scripts in externes Sheet (shrinkNavbar, gotoTopBtn ect...)
 
     Logo verschönern
         > in .svg umwandeln?
@@ -35,18 +37,24 @@
         > Deutsch und Englisch wechselt oft
         > Code in englischer Sprache für diesen Zweck zweitranig
 
-## ToDo bisher noch nicht gelernt:
+        ### Referenzen
+        -
 
-    Kontaktformular
-        Telefonanruf direkt von Homepage
-        E-Mailverbindung (Mail auf Page als Bild einbinden)
-        Google Maps einbinden
+    Menue bei Referenzen im Handymodus
 
-    Cookies...
+### bisher noch nicht gelernt:
 
-    Suchmaschinenoptimierung / Google Business (Unternehmensprofil)
+Kontaktformular
 
-### ToDo Auftraggeber
+- Telefonanruf direkt von Homepage
+- E-Mailverbindung (Mail auf Page als Bild einbinden)
+- Google Maps einbinden
+
+- Cookies...
+
+- Suchmaschinenoptimierung / Google Business (Unternehmensprofil)
+
+## ToDo Auftraggeber
 
     Datenschutz und AGB überprüfen, anpassen bzw ausliefern
         > auf Standardvorlagen und Datenschutzgeneratoren im Netz hinweisen und klären, ob diese ausreichen

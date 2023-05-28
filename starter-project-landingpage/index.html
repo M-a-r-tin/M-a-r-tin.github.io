@@ -8,8 +8,6 @@
     <title>Ingenieurplanung Blum</title>
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -20,7 +18,7 @@
     <div class="topnav" id="idTopnav">
         <a class="logo-link" id="idLogoLink" href="index.html">
             <p id="idLogoFont">iPB</p>
-            <img id="logo-svg" src="data/img/Logo/Logo kursiv.svg" alt="Ingenieurplanung Dr Blum GmbH & Co. KG">
+            <!-- <img id="logo-svg" src="data/img/Logo/Logo kursiv.svg" alt="Ingenieurplanung Dr Blum GmbH & Co. KG"> -->
         </a>
         <a href="#goto-leistungen" class="navigationLink">Leistungen</a>
         <a href="referenzen.html" class="navigationLink">Referenzen</a>
@@ -202,58 +200,8 @@
     </footer>
     <!-- =================== -->
 
-    <script>
-        function expandMenu() {
-            var x = document.getElementById("idTopnav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
-            }
-        }
+    <script type="text/javascript" src="script.js"></script>
 
-
-        // scrollen führt die Funktionen aus
-        window.onscroll = function () {
-            shrinkNavbar();
-            scrollAddBtn();
-        }
-
-        function shrinkNavbar() {
-            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                document.getElementById("idLogoFont").style.fontSize = "1.5rem";
-                document.getElementById("idLogoLink").style.padding = ".5rem";
-
-                document.getElementById("idBurger").style.fontSize = "1rem";
-                document.getElementById("idBurger").style.top = "0rem";
-            } else {
-                document.getElementById("idLogoFont").style.fontSize = "3rem";
-                document.getElementById("idLogoLink").style.fontSize = "30rem";
-
-                document.getElementById("idBurger").style.fontSize = "1.6rem";
-                document.getElementById("idBurger").style.top = "0.5rem";
-
-            }
-        }
-
-        // gotoTopBtn wird sichtbar beim scrollen > 500
-        function scrollAddBtn() {
-            gotoTopBtn = document.getElementById("idGotoTopBtn")
-            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-                gotoTopBtn.style.display = "block";
-            } else {
-                gotoTopBtn.style.display = "none"
-            }
-        }
-
-        // onclick des gotoToBtn
-        function gotoTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0
-        }
-
-
-    </script>
 </body>
 
 </html>

@@ -108,50 +108,9 @@ Ref Navigation mobile */
 }
 
 
-
 /* Hier Ende Nav2 Desktop  */
 /* =============== */
 /* =============== */
-
-
-
-#idGotoTopBtn {
-    /* display: none; */
-    position: fixed;
-    bottom: 2rem;
-    right: 2.2rem;
-
-    width: 8rem;
-    height: auto;
-
-    border: none;
-    outline: none;
-    background-color: #0965a3de;
-    color: white;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: .5rem;
-    font-size: 2rem;
-    z-index: 18;
-}
-
-@media screen and (max-width: 500px) {
-    #idGotoTopBtn {
-        bottom: 0.5rem;
-    }
-
-
-}
-
-
-
-/* =============== */
-/* =============== */
-/* =============== */
-
-
-
-
 
 .ueberschrift-referenz h1 {
     padding: 5rem;
@@ -234,7 +193,7 @@ h2 {
     font-size: 1rem;
     padding: 0.5rem;
 
-    z-index: 11;
+    z-index: 9;
 }
 
 .image-location {
