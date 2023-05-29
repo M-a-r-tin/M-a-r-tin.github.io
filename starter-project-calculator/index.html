@@ -121,6 +121,8 @@
         // Berechnen //
         function calculate() {
             document.getElementById("idScreenHead").innerHTML = "" // clear Fehlermeldung
+            let item = document.getElementById("idScreen").innerHTML
+
 
             if (countOpen == countClose) { // wurden genauso viele Klammern geschlossen wie geöffnet?
                 let formula = document.getElementById("idScreen").innerHTML
@@ -176,7 +178,6 @@
 
                 // das 12. zeichen führt zur Verkleinerung. Löschen des Zeichens = wieder vergrößern
                 if (item.length < 12) {
-                    console.log(item.length)
                     document.getElementById("idScreen").classList.remove("shrinkMe");
                 } else { }
             }
@@ -201,7 +202,6 @@
                 <div id="idScreen" class="resultScreen"> </div>
 
             </div>
-
             <table>
                 <tr>
                     <td class="tdNoNumber" id="idDarkMode" onclick="darkMode">
@@ -221,8 +221,6 @@
                     </td>
                     <td class="tdNoNumber" onclick="deleteItem()">
                         <i class="fa-regular fa-delete-left" id="idIconDelete"></i>
-
-
                     </td>
                     <td class="tdNoNumber" onclick="appendOperator(' / ')">/</td>
                     <td class="tdNoNumber" onclick="appendOperator(' * ')">*</td>
