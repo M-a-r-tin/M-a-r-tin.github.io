@@ -6,7 +6,7 @@
 ## Weitere Leistungen
 
 - Stock Material: hero, referenzen(per css-background), karriere
-- Eigene Bilder: #Leistungen (css background), referenzen (css background)
+- Eigene Bilder: #Leistungen (css-background), referenzen (css-background)
 - Alle Texte verfasst (außer AGB+Datenschutz)
   > AGB und Datenschutz von der alten Homepage übernommen
 - Das Platzhalter-Logo als Font erstellt

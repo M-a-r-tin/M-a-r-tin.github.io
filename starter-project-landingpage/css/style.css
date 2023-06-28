@@ -779,6 +779,21 @@ Stellenausschreibung (auf karriere.hmtl)
     padding-right: 0.5rem;
 }
 
+
+
+/*  ==========================================
+
+Impressum & Datenschutz
+
+======================================= */
+
+.h3Impressum{
+    margin-top: 2.5rem;
+}
+
+
+
+
 @media screen and (max-width: 600px) {
     body {
         font-size: 1rem;
