@@ -306,7 +306,13 @@ function action() {
       imgNumber -= 2;
     }
   }
-  imgSimpsons.setAttribute("src", "/img/" + imgNumber + ".png");
+
+
+    imgSimpsons.setAttribute(
+    "src",
+    "/starter-project-buchstabensuppe/img/" + imgNumber + ".png"
+  );
+  // imgSimpsons.setAttribute("src", "/img/" + imgNumber + ".png");
 
   // imgNumber aktualisiert
   previousNumber = imgNumber;
