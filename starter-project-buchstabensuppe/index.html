@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistik der Buchstaben</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!--      -->
+    <!-- Markup -->
+    <!--  -->
+    <div class="container-main">
+        <h1>Statistik, Stochastik und Nudeln</h1>
+
+        <div id="idDivInput">
+            <p>Du tauchst deinen Löffel in eine Schüssel Buchstabensuppe. Zufällig ergeben die Buchstaben folgendes</p>
+            <h3>Wort:</h2>
+                <input type="text" id="idInputWord" placeholder="Hier darfst du etwas eintragen">
+                <br>
+                <input type="button" value="Zufall" onclick=action() id="idAction">
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="idDivResult">
+
+        <div class="modal-content">
+            <span id="idCloseModal">&times;</span>
+            <p id="idResultSatz"> <span id="idResult"> </span> </p>
+            <!-- 1 -->
+            <div>
+                <p id="idResultProzent"></p>
+            </div>
+            <!-- 2 -->
+
+            <div id="idSimpsonsDiv">
+                <div id="idTextContainer">
+                    <p id="idUnnuetzesWissen"> </p>
+                </div>
+                <div>
+                    <img id="idHomer" alt="Oops, Bild nicht geladen?">
+                </div>
+            </div>
+        </div>
+        <!-- 3 -->
+        <!-- Progressbar -->
+        <div class="divProgress">
+            <!-- Skala -->
+            <div id="idScaleContainer">
+                <div class="elemSkala">0 </div>
+                <div class="elemSkala">10</div>
+                <div class="elemSkala">20</div>
+                <div class="elemSkala">30</div>
+                <div class="elemSkala">40</div>
+                <div class="elemSkala">50</div>
+                <div class="elemSkala">60</div>
+                <div class="elemSkala">70</div>
+                <div class="elemSkala">80</div>
+                <div class="elemSkala">90</div>
+                <div class="elemSkala">100 </div>
+            </div>
+            <div id="idScaleContainer2">
+                <div class="elemSkalaTick">|</div>
+                <div class="elemSkalaTick">|</div>
+                <div class="elemSkalaTick">|</div>
+                <div class="elemSkalaTick">|</div>
+                <div class="elemSkalaTick">|</div>
+                <div class="elemSkalaTick">|</div>
+                <div class="elemSkalaTick">|</div>
+                <div class="elemSkalaTick">|</div>
+                <div class="elemSkalaTick">|</div>
+                <div class="elemSkalaTick">|</div>
+                <div class="elemSkalaTick">|</div>
+            </div>
+            <!-- Progressbar -->
+            <div id="idProgressbar"></div>
+        </div>
+        <!-- </div> -->
+    </div>
+
+
+
+</body>
+
+</html>
